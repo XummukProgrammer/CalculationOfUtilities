@@ -56,6 +56,9 @@
     <Compile Include="Src\Services\HotWaterSupplyService.cs" />
     <Compile Include="Src\Services\IService.cs" />
     <Compile Include="Src\Services\ServicesManager.cs" />
+    <Compile Include="Src\Settings\Rates.cs" />
+    <Compile Include="Src\Settings\Settings.cs" />
+    <Compile Include="Src\Settings\Standarts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

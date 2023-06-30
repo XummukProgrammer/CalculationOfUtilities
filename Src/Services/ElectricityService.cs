@@ -16,14 +16,13 @@
             {
                 if (_counter is Counter.ElectricityMeteringDeviceCounter castedCounter)
                 {
-                    float dayRate = 0;
-                    float nightRate = 0;
+                    float dayRate = context.Settings.Rates.GetDayElectricity();
+                    float nightRate = context.Settings.Rates.GetNightElectricity();
                     return castedCounter.GetVolume() * dayRate + castedCounter.GetNightVolume() * nightRate;
                 }
                 else
                 {
-                    float rate = 0;
-                    return _counter.GetVolume() * rate;
+                    return _counter.GetVolume() * context.Settings.Rates.GetElectricity();
                 }
             }
             return 0;

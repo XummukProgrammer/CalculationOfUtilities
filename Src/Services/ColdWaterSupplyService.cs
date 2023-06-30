@@ -13,8 +13,7 @@
         {
             if (_counter != null)
             {
-                float rate = 0;
-                return _counter.GetVolume() * rate;
+                return _counter.GetVolume() * context.Settings.Rates.GetColdWaterSupply();
             }
             return 0;
         }
