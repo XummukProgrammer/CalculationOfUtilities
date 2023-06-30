@@ -55,6 +55,8 @@
     <Compile Include="Src\Services\ElectricityService.cs" />
     <Compile Include="Src\Services\HotWaterSupplyService.cs" />
     <Compile Include="Src\Services\IService.cs" />
+    <Compile Include="Src\Services\ServiceCalculatedInfo.cs" />
+    <Compile Include="Src\Services\ServicesCalculatedInfos.cs" />
     <Compile Include="Src\Services\ServicesManager.cs" />
     <Compile Include="Src\Settings\Rates.cs" />
     <Compile Include="Src\Settings\Settings.cs" />

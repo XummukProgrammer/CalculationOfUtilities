@@ -22,5 +22,21 @@ namespace CalculationOfUtilities.Services
             }
             return default(T);
         }
+
+        public ServicesCalculatedInfos Calculate()
+        {
+            ServicesCalculatedInfos infos = new ServicesCalculatedInfos();
+            float totalSum = 0;
+
+            foreach (var service in _services)
+            {
+                ServiceCalculatedInfo info = new ServiceCalculatedInfo(service.GetType().Name, service.GetPrice());
+                totalSum += info.Price;
+                infos.AddInfo(info);
+            }
+
+            infos.TotalSum = totalSum;
+            return infos;
+        }
     }
 }
