@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\Core\Context.cs" />
+    <Compile Include="Src\Counter\ElectricityMeteringDeviceCounter.cs" />
     <Compile Include="Src\Counter\ICounter.cs" />
     <Compile Include="Src\Counter\MeteringDeviceCounter.cs" />
+    <Compile Include="Src\Counter\MeteringDeviceSpan.cs" />
     <Compile Include="Src\Counter\RegulatoryScopeCounter.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,18 +2,20 @@
 {
     public class MeteringDeviceCounter : ICounter
     {
-        private float _currentIndications;
-        private float _prevIndications;
+        private Counter.MeteringDeviceSpan _span;
 
-        public MeteringDeviceCounter(float currentIndications, float prevIndications)
+        public MeteringDeviceCounter(Counter.MeteringDeviceSpan span)
         {
-            _currentIndications = currentIndications;
-            _prevIndications = prevIndications;
+            _span = span;
         }
 
         public float GetVolume()
         {
-            return _currentIndications - _prevIndications;
+            if (_span != null)
+            {
+                return _span.GetVolume();
+            }
+            return 0;
         }
     }
 }

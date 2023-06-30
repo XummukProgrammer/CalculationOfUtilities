@@ -14,8 +14,17 @@
         {
             if (_counter != null)
             {
-                float rate = 0;
-                return _counter.GetVolume() * rate;
+                if (_counter is Counter.ElectricityMeteringDeviceCounter castedCounter)
+                {
+                    float dayRate = 0;
+                    float nightRate = 0;
+                    return castedCounter.GetVolume() * dayRate + castedCounter.GetNightVolume() * nightRate;
+                }
+                else
+                {
+                    float rate = 0;
+                    return _counter.GetVolume() * rate;
+                }
             }
             return 0;
         }
