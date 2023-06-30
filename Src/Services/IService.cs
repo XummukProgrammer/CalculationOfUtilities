@@ -2,6 +2,7 @@
 {
     public interface IService
     {
-        float GetPrice(Core.Context context);
+        float GetPrice();
+        float GetStandart();
     }
 }

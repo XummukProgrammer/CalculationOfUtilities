@@ -9,7 +9,7 @@
             _span = span;
         }
 
-        public float GetVolume()
+        public float GetVolume(Services.IService service)
         {
             if (_span != null)
             {

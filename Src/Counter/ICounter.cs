@@ -2,6 +2,6 @@
 {
     public interface ICounter
     {
-        float GetVolume();
+        float GetVolume(Services.IService service);
     }
 }

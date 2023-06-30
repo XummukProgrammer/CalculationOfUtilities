@@ -2,28 +2,39 @@
 {
     public class ElectricityService : IService
     {
+        private Core.Context _context;
         private Counter.ICounter _counter;
 
 
-        public ElectricityService(Counter.ICounter counter)
+        public ElectricityService(Core.Context context, Counter.ICounter counter)
         {
+            _context = context;
             _counter = counter;
         }
 
-        public float GetPrice(Core.Context context)
+        public float GetPrice()
         {
-            if (_counter != null)
+            if (_context != null && _counter != null)
             {
                 if (_counter is Counter.ElectricityMeteringDeviceCounter castedCounter)
                 {
-                    float dayRate = context.Settings.Rates.GetDayElectricity();
-                    float nightRate = context.Settings.Rates.GetNightElectricity();
-                    return castedCounter.GetVolume() * dayRate + castedCounter.GetNightVolume() * nightRate;
+                    float dayRate = _context.Settings.Rates.GetDayElectricity();
+                    float nightRate = _context.Settings.Rates.GetNightElectricity();
+                    return castedCounter.GetVolume(this) * dayRate + castedCounter.GetNightVolume() * nightRate;
                 }
                 else
                 {
-                    return _counter.GetVolume() * context.Settings.Rates.GetElectricity();
+                    return _counter.GetVolume(this) * _context.Settings.Rates.GetElectricity();
                 }
+            }
+            return 0;
+        }
+
+        public float GetStandart()
+        {
+            if (_context != null)
+            {
+                return _context.Settings.Standarts.GetElectricity();
             }
             return 0;
         }

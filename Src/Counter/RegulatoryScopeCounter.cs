@@ -3,17 +3,19 @@
     public class RegulatoryScopeCounter : ICounter
     {
         private uint _residents;
-        private float _standart;
 
-        public RegulatoryScopeCounter(uint residents, float standart)
+        public RegulatoryScopeCounter(uint residents)
         {
             _residents = residents;
-            _standart = standart;
         }
 
-        public float GetVolume()
+        public float GetVolume(Services.IService service)
         {
-            return _residents * _standart;
+            if (service != null)
+            {
+                return _residents * service.GetStandart();
+            }
+            return 0;
         }
     }
 }
