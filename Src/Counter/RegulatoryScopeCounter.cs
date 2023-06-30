@@ -2,9 +2,18 @@
 {
     public class RegulatoryScopeCounter : ICounter
     {
-        public float GetAccrual(Core.Context context)
+        private uint _residents;
+        private float _standart;
+
+        public RegulatoryScopeCounter(uint residents, float standart)
         {
-            return 0;
+            _residents = residents;
+            _standart = standart;
+        }
+
+        public float GetVolume()
+        {
+            return _residents * _standart;
         }
     }
 }

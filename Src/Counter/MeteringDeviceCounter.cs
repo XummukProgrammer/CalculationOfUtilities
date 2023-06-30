@@ -2,9 +2,18 @@
 {
     public class MeteringDeviceCounter : ICounter
     {
-        public float GetAccrual(Core.Context context)
+        private float _currentIndications;
+        private float _prevIndications;
+
+        public MeteringDeviceCounter(float currentIndications, float prevIndications)
         {
-            return 0;
+            _currentIndications = currentIndications;
+            _prevIndications = prevIndications;
+        }
+
+        public float GetVolume()
+        {
+            return _currentIndications - _prevIndications;
         }
     }
 }

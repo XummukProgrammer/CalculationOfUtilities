@@ -2,8 +2,21 @@
 {
     public class ElectricityService : IService
     {
-        public float GetAccrual(Core.Context context)
+        private Counter.ICounter _counter;
+
+
+        public ElectricityService(Counter.ICounter counter)
         {
+            _counter = counter;
+        }
+
+        public float GetPrice(Core.Context context)
+        {
+            if (_counter != null)
+            {
+                float rate = 0;
+                return _counter.GetVolume() * rate;
+            }
             return 0;
         }
     }

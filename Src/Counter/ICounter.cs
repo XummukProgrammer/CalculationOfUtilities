@@ -2,6 +2,6 @@
 {
     public interface ICounter
     {
-        float GetAccrual(Core.Context context);
+        float GetVolume();
     }
 }
