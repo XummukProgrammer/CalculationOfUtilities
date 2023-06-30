@@ -8,6 +8,8 @@
             context.ServicesManager.AddService<Services.ColdWaterSupplyService>();
             context.ServicesManager.AddService<Services.HotWaterSupplyService>();
             context.ServicesManager.AddService<Services.ElectricityService>();
+
+            context.Counter = new Counter.BaseCounter();
         }
     }
 }

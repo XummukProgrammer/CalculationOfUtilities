@@ -2,6 +2,6 @@
 {
     public interface IService
     {
-        float GetAccrual();
+        float GetAccrual(Core.Context context);
     }
 }

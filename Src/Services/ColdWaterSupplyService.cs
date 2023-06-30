@@ -2,7 +2,7 @@
 {
     public class ColdWaterSupplyService : IService
     {
-        public float GetAccrual()
+        public float GetAccrual(Core.Context context)
         {
             return 0;
         }

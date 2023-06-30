@@ -1,6 +1,6 @@
-﻿namespace CalculationOfUtilities.Services
+﻿namespace CalculationOfUtilities.Counter
 {
-    public class ElectricityService : IService
+    public class RegulatoryScopeCounter : ICounter
     {
         public float GetAccrual(Core.Context context)
         {
