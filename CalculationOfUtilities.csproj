@@ -45,27 +45,27 @@
   <ItemGroup>
     <Compile Include="Src\Core\Application.cs" />
     <Compile Include="Src\Core\Context.cs" />
-    <Compile Include="Src\Counter\ElectricityMeteringDeviceCounter.cs" />
+    <Compile Include="Src\Counter\Types\ElectricityMeteringDeviceCounter.cs" />
     <Compile Include="Src\Counter\ICounter.cs" />
-    <Compile Include="Src\Counter\MeteringDeviceCounter.cs" />
-    <Compile Include="Src\Counter\MeteringDeviceSpan.cs" />
-    <Compile Include="Src\Counter\RegulatoryScopeCounter.cs" />
+    <Compile Include="Src\Counter\Types\MeteringDeviceCounter.cs" />
+    <Compile Include="Src\Counter\Data\MeteringDeviceSpan.cs" />
+    <Compile Include="Src\Counter\Types\RegulatoryScopeCounter.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\Services\ColdWaterSupplyService.cs" />
-    <Compile Include="Src\Services\ElectricityService.cs" />
-    <Compile Include="Src\Services\HotWaterSupplyService.cs" />
+    <Compile Include="Src\Services\Types\ColdWaterSupplyService.cs" />
+    <Compile Include="Src\Services\Types\ElectricityService.cs" />
+    <Compile Include="Src\Services\Types\HotWaterSupplyService.cs" />
     <Compile Include="Src\Services\IService.cs" />
-    <Compile Include="Src\Services\ServiceCalculatedInfo.cs" />
-    <Compile Include="Src\Services\ServicesCalculatedInfos.cs" />
+    <Compile Include="Src\Services\Data\ServiceCalculatedInfo.cs" />
+    <Compile Include="Src\Services\Data\ServicesCalculatedInfos.cs" />
     <Compile Include="Src\Services\ServicesManager.cs" />
     <Compile Include="Src\Settings\Rates.cs" />
     <Compile Include="Src\Settings\Settings.cs" />
     <Compile Include="Src\Settings\Standarts.cs" />
-    <Compile Include="Src\States\ExitState.cs" />
-    <Compile Include="Src\States\InitializationState.cs" />
+    <Compile Include="Src\States\Types\ExitState.cs" />
+    <Compile Include="Src\States\Types\InitializationState.cs" />
     <Compile Include="Src\States\IState.cs" />
-    <Compile Include="Src\States\ShowResultsState.cs" />
+    <Compile Include="Src\States\Types\ShowResultsState.cs" />
     <Compile Include="Src\States\StatesManager.cs" />
   </ItemGroup>
   <ItemGroup>
