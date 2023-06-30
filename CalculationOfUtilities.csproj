@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\Core\Application.cs" />
     <Compile Include="Src\Core\Context.cs" />
     <Compile Include="Src\Counter\ElectricityMeteringDeviceCounter.cs" />
     <Compile Include="Src\Counter\ICounter.cs" />
@@ -61,6 +62,11 @@
     <Compile Include="Src\Settings\Rates.cs" />
     <Compile Include="Src\Settings\Settings.cs" />
     <Compile Include="Src\Settings\Standarts.cs" />
+    <Compile Include="Src\States\ExitState.cs" />
+    <Compile Include="Src\States\InitializationState.cs" />
+    <Compile Include="Src\States\IState.cs" />
+    <Compile Include="Src\States\ShowResultsState.cs" />
+    <Compile Include="Src\States\StatesManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
