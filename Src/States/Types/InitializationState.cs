@@ -1,10 +1,8 @@
-﻿using CalculationOfUtilities.Core;
-
-namespace CalculationOfUtilities.States
+﻿namespace CalculationOfUtilities.States
 {
     public class InitializationState : IState
     {
-        public void OnEnter(Context context)
+        public void OnEnter(Core.Context context)
         {
             ConsoleUI.ResidentsDialog residentsDialog = new ConsoleUI.ResidentsDialog();
             residentsDialog.Exec();
@@ -17,11 +15,11 @@ namespace CalculationOfUtilities.States
             context.ServicesManager.AddService(serviceFactory.MakeServiceWithDialog<ConsoleUI.ElectricityServiceDialog, Services.ElectricityService>(context));
         }
 
-        public void OnExit(Context context)
+        public void OnExit(Core.Context context)
         {
         }
 
-        public void OnUpdate(Context context)
+        public void OnUpdate(Core.Context context)
         {
             context.StatesManager.SetCurrentState<ShowResultsState>();
         }

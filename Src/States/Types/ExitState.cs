@@ -1,19 +1,17 @@
-﻿using CalculationOfUtilities.Core;
-
-namespace CalculationOfUtilities.States
+﻿namespace CalculationOfUtilities.States
 {
     public class ExitState : IState
     {
-        public void OnEnter(Context context)
+        public void OnEnter(Core.Context context)
         {
             context.IsExit = true;
         }
 
-        public void OnExit(Context context)
+        public void OnExit(Core.Context context)
         {
         }
 
-        public void OnUpdate(Context context)
+        public void OnUpdate(Core.Context context)
         {
         }
     }
