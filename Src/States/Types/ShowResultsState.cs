@@ -14,6 +14,7 @@
             }
 
             System.Console.WriteLine(context.TranslationsManager.GetTranslationText("TOTAL_SUM"), servicesCalculatedInfos.TotalSum);
+            System.Console.ReadKey();
         }
 
         public void OnExit(Core.Context context)
@@ -22,8 +23,7 @@
 
         public void OnUpdate(Core.Context context)
         {
-            System.Console.ReadKey();
-            context.StatesManager.SetCurrentState<ExitState>();
+            context.StatesManager.SetCurrentState<SubmitState>();
         }
     }
 }

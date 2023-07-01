@@ -36,6 +36,8 @@
             context.TranslationsManager.AddTranslationText(typeof(Services.ElectricityService).Name, Translations.TranslationLangType.Russia, "Электроэнергия (ЭЭ)");
             context.TranslationsManager.AddTranslationText(typeof(Services.ElectricityService).Name, Translations.TranslationLangType.English, typeof(Services.ElectricityService).Name);
 
+            context.Database.Load();
+
             ConsoleUI.ResidentsDialog residentsDialog = new ConsoleUI.ResidentsDialog(context);
             residentsDialog.Exec();
             context.Residents = residentsDialog.Residents;

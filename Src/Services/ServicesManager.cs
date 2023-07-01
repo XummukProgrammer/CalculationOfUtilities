@@ -38,5 +38,21 @@ namespace CalculationOfUtilities.Services
             infos.TotalSum = totalSum;
             return infos;
         }
+
+        public void Sumbit(Core.Context context)
+        {
+            int mountId = context.Database.CreateMount(context);
+            if (mountId == -1)
+            {
+                return;
+            }
+
+            Factory.ServiceFactory serviceFactory = new Factory.ServiceFactory();
+
+            foreach (var service in _services)
+            {
+                serviceFactory.SubmitServiceToDatabase(context, mountId, service);
+            }
+        }
     }
 }

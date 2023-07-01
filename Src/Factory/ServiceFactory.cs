@@ -27,5 +27,26 @@
             TService service = (TService)System.Activator.CreateInstance(typeof(TService), context, counter);
             return service;
         }
+
+        public void SubmitServiceToDatabase(Core.Context context, int mountId, Services.IService service)
+        {
+            // TODO: По сути Price уже известен, можно бы было получать какую-либо готовую информацию
+            int serviceId = context.Database.CreateService(context, mountId, service.GetType().Name, service.GetPrice());
+            if (serviceId == -1)
+            {
+                return;
+            }
+
+            // TODO: Внутри Counter обращаться к Database, чтобы не узнавать тип данных
+            var counter = service.GetCounter();
+            if (counter is Counter.ElectricityMeteringDeviceCounter electricityMeteringDeviceCounter)
+            {
+                context.Database.CreateElectricityMeteringDevice(serviceId, electricityMeteringDeviceCounter.Span, electricityMeteringDeviceCounter.NightSpan);
+            }
+            else if (counter is Counter.MeteringDeviceCounter meteringDeviceCounter)
+            {
+                context.Database.CreateMeteringDevice(serviceId, meteringDeviceCounter.Span);
+            }
+        }
     }
 }

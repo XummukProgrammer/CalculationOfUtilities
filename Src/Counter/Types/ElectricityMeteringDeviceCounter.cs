@@ -2,18 +2,18 @@
 {
     public class ElectricityMeteringDeviceCounter : MeteringDeviceCounter
     {
-        private Counter.MeteringDeviceSpan _nightSpan;
+        public Counter.MeteringDeviceSpan NightSpan { private set; get; }
 
         public ElectricityMeteringDeviceCounter(Counter.MeteringDeviceSpan daySpan, MeteringDeviceSpan nightSpan) : base(daySpan)
         {
-            _nightSpan = nightSpan;
+            NightSpan = nightSpan;
         }
 
         public float GetNightVolume()
         {
-            if (_nightSpan != null)
+            if (NightSpan != null)
             {
-                return _nightSpan.GetVolume();
+                return NightSpan.GetVolume();
             }
             return 0;
         }

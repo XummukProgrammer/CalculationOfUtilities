@@ -4,5 +4,6 @@
     {
         float GetPrice();
         float GetStandart();
+        Counter.ICounter GetCounter();
     }
 }

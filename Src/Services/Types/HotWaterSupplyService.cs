@@ -33,6 +33,11 @@
             }
             return 0;
         }
+
+        public Counter.ICounter GetCounter()
+        {
+            return _counter;
+        }
     }
 
     public class HotWaterSupplyThermalEnergyService : IService
@@ -48,6 +53,15 @@
             {
                 _heatCarrierService = _context.ServicesManager.GetService<HotWaterSupplyHeatCarrierService>();
             }
+        }
+
+        public Counter.ICounter GetCounter()
+        {
+            if (_heatCarrierService != null)
+            {
+                return _heatCarrierService.GetCounter();
+            }
+            return null;
         }
 
         public float GetPrice()

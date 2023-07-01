@@ -2,18 +2,18 @@
 {
     public class MeteringDeviceCounter : ICounter
     {
-        private Counter.MeteringDeviceSpan _span;
+        public Counter.MeteringDeviceSpan Span { private set; get; }
 
         public MeteringDeviceCounter(Counter.MeteringDeviceSpan span)
         {
-            _span = span;
+            Span = span;
         }
 
         public float GetVolume(Services.IService service)
         {
-            if (_span != null)
+            if (Span != null)
             {
-                return _span.GetVolume();
+                return Span.GetVolume();
             }
             return 0;
         }

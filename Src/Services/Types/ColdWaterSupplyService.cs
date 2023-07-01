@@ -11,6 +11,11 @@
             _counter = counter;
         }
 
+        public Counter.ICounter GetCounter()
+        {
+            return _counter;
+        }
+
         public float GetPrice()
         {
             if (_context != null && _counter != null)
