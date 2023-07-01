@@ -10,10 +10,10 @@
             while (infos.MoveNext())
             {
                 var info = infos.Current;
-                System.Console.WriteLine($"Name: {info.Name}, Price: {info.Price}");
+                System.Console.WriteLine(context.TranslationsManager.GetTranslationText("CALCULATED_SERVICE_INFO"), context.TranslationsManager.GetTranslationText(info.Name), info.Price);
             }
 
-            System.Console.WriteLine($"Total Sum: {servicesCalculatedInfos.TotalSum}");
+            System.Console.WriteLine(context.TranslationsManager.GetTranslationText("TOTAL_SUM"), servicesCalculatedInfos.TotalSum);
         }
 
         public void OnExit(Core.Context context)

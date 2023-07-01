@@ -71,6 +71,9 @@
     <Compile Include="Src\States\IState.cs" />
     <Compile Include="Src\States\Types\ShowResultsState.cs" />
     <Compile Include="Src\States\StatesManager.cs" />
+    <Compile Include="Src\Translations\Translation.cs" />
+    <Compile Include="Src\Translations\TranslationLangType.cs" />
+    <Compile Include="Src\Translations\TranslationsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

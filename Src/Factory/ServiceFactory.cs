@@ -4,7 +4,7 @@
     {
         public TService MakeServiceWithDialog<TDialog, TService>(Core.Context context) where TDialog : ConsoleUI.ServiceDialog where TService : Services.IService
         {
-            TDialog dialog = System.Activator.CreateInstance(typeof(TDialog), typeof(TService).Name) as TDialog;
+            TDialog dialog = System.Activator.CreateInstance(typeof(TDialog), context, typeof(TService).Name) as TDialog;
             dialog.Exec();
 
             Counter.ICounter counter = null;

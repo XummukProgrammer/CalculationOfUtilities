@@ -4,9 +4,21 @@
     {
         public uint Residents { private set; get; }
 
+        private Core.Context _context;
+
+        public ResidentsDialog(Core.Context context)
+        {
+            _context = context;
+        }
+
         public void Exec()
         {
-            System.Console.Write("Enter the number of people living in the apartment: ");
+            if (_context == null)
+            {
+                return;
+            }
+
+            System.Console.Write(_context.TranslationsManager.GetTranslationText("ENTER_RESIDENTS"));
             Residents = uint.Parse(System.Console.ReadLine());
             System.Console.Clear();
         }
