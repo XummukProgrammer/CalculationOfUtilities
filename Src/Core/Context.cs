@@ -6,6 +6,9 @@
         public States.StatesManager StatesManager { private set; get; } = new States.StatesManager();
 
         public Settings.Settings Settings { private set; get; } = new Settings.Settings();
+        
         public bool IsExit { set; get; }
+        
+        public uint Residents { set; get; }
     }
 }

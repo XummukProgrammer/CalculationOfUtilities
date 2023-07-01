@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\ConsoleUI\ElectricityServiceDialog.cs" />
+    <Compile Include="Src\ConsoleUI\ResidentsDialog.cs" />
+    <Compile Include="Src\ConsoleUI\ServiceDialog.cs" />
     <Compile Include="Src\Core\Application.cs" />
     <Compile Include="Src\Core\Context.cs" />
     <Compile Include="Src\Counter\Types\ElectricityMeteringDeviceCounter.cs" />
@@ -50,6 +53,7 @@
     <Compile Include="Src\Counter\Types\MeteringDeviceCounter.cs" />
     <Compile Include="Src\Counter\Data\MeteringDeviceSpan.cs" />
     <Compile Include="Src\Counter\Types\RegulatoryScopeCounter.cs" />
+    <Compile Include="Src\Factory\ServiceFactory.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\Services\Types\ColdWaterSupplyService.cs" />
@@ -71,5 +75,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

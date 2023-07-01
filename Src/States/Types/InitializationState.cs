@@ -6,10 +6,15 @@ namespace CalculationOfUtilities.States
     {
         public void OnEnter(Context context)
         {
-            context.ServicesManager.AddService<Services.ColdWaterSupplyService>(context, new Counter.MeteringDeviceCounter(new Counter.MeteringDeviceSpan(26, 0)));
-            context.ServicesManager.AddService<Services.HotWaterSupplyHeatCarrierService>(context, new Counter.MeteringDeviceCounter(new Counter.MeteringDeviceSpan(1, 0)));
-            context.ServicesManager.AddService<Services.HotWaterSupplyThermalEnergyService>(context, new Counter.MeteringDeviceCounter(new Counter.MeteringDeviceSpan(1, 0)));
-            context.ServicesManager.AddService<Services.ElectricityService>(context, new Counter.ElectricityMeteringDeviceCounter(new Counter.MeteringDeviceSpan(91, 0), new Counter.MeteringDeviceSpan(91, 0)));
+            ConsoleUI.ResidentsDialog residentsDialog = new ConsoleUI.ResidentsDialog();
+            residentsDialog.Exec();
+            context.Residents = residentsDialog.Residents;
+
+            Factory.ServiceFactory serviceFactory = new Factory.ServiceFactory();
+            context.ServicesManager.AddService(serviceFactory.MakeServiceWithDialog<ConsoleUI.ServiceDialog, Services.ColdWaterSupplyService>(context));
+            context.ServicesManager.AddService(serviceFactory.MakeServiceWithDialog<ConsoleUI.ServiceDialog, Services.HotWaterSupplyHeatCarrierService>(context));
+            context.ServicesManager.AddService(serviceFactory.MakeServiceWithDialog<ConsoleUI.ServiceDialog, Services.HotWaterSupplyThermalEnergyService>(context));
+            context.ServicesManager.AddService(serviceFactory.MakeServiceWithDialog<ConsoleUI.ElectricityServiceDialog, Services.ElectricityService>(context));
         }
 
         public void OnExit(Context context)

@@ -6,9 +6,9 @@ namespace CalculationOfUtilities.Services
     {
         private List<Services.IService> _services = new List<Services.IService>();
 
-        public void AddService<T>(Core.Context context, Counter.ICounter counter) where T : Services.IService
+        public void AddService(IService service)
         {
-            _services.Add((T)System.Activator.CreateInstance(typeof(T), context, counter));
+            _services.Add(service);
         }
 
         public T GetService<T>() where T : Services.IService
