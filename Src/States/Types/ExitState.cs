@@ -5,6 +5,8 @@
         public void OnEnter(Core.Context context)
         {
             context.IsExit = true;
+
+            context.Database.Disconnect();
         }
 
         public void OnExit(Core.Context context)

@@ -7,13 +7,28 @@ namespace CalculationOfUtilities.Database
     {
         public int UserId { private set; get; }
 
-        public void Load()
-        {
-            using (var connection = new SqliteConnection("Data Source=DataBase.db"))
-            {
-                connection.Open();
+        private SqliteConnection _connection;
 
-                SqliteCommand command = connection.CreateCommand();
+        public void Connect()
+        {
+            _connection = new SqliteConnection("Data Source=DataBase.db");
+            _connection.Open();
+        }
+
+        public void Disconnect()
+        {
+            if (_connection != null)
+            {
+                _connection.Close();
+                _connection = null;
+            }
+        }
+
+        public void Initialization()
+        {
+            if (_connection != null)
+            {
+                SqliteCommand command = _connection.CreateCommand();
                 CreateTables(command);
                 CreateTestUser(command);
             }
@@ -21,11 +36,9 @@ namespace CalculationOfUtilities.Database
 
         public int CreateMount(Core.Context context)
         {
-            using (var connection = new SqliteConnection("Data Source=DataBase.db"))
+            if (_connection != null)
             {
-                connection.Open();
-
-                SqliteCommand sqlCommand = connection.CreateCommand();
+                SqliteCommand sqlCommand = _connection.CreateCommand();
                 sqlCommand.CommandText = "INSERT INTO mounths (user_id, residents) VALUES(@user_id, @residents); SELECT last_insert_rowid();";
                 sqlCommand.Parameters.Add(new SqliteParameter("@user_id", UserId));
                 sqlCommand.Parameters.Add(new SqliteParameter("@residents", context.Residents));
@@ -36,11 +49,9 @@ namespace CalculationOfUtilities.Database
 
         public int CreateService(Core.Context context, int mountId, string name, float price)
         {
-            using (var connection = new SqliteConnection("Data Source=DataBase.db"))
+            if (_connection != null)
             {
-                connection.Open();
-
-                SqliteCommand sqlCommand = connection.CreateCommand();
+                SqliteCommand sqlCommand = _connection.CreateCommand();
                 sqlCommand.CommandText = "INSERT INTO services (mounth_id, name, price) VALUES(@mounth_id, @name, @price); SELECT last_insert_rowid();";
                 sqlCommand.Parameters.Add(new SqliteParameter("@mounth_id", mountId));
                 sqlCommand.Parameters.Add(new SqliteParameter("@name", name));
@@ -52,11 +63,9 @@ namespace CalculationOfUtilities.Database
 
         public int CreateElectricityMeteringDevice(int serviceId, Counter.MeteringDeviceSpan daySpan, Counter.MeteringDeviceSpan nightSpan)
         {
-            using (var connection = new SqliteConnection("Data Source=DataBase.db"))
+            if (_connection != null)
             {
-                connection.Open();
-
-                SqliteCommand sqlCommand = connection.CreateCommand();
+                SqliteCommand sqlCommand = _connection.CreateCommand();
                 sqlCommand.CommandText = "INSERT INTO electricity_metering_devices " +
                         "(service_id, current_indications_day, prev_indications_day, current_indications_night, prev_indications_night) " +
                         "VALUES(@service_id, @current_indications_day, @prev_indications_day, @current_indications_night, @prev_indications_night);" +
@@ -73,11 +82,9 @@ namespace CalculationOfUtilities.Database
 
         public int CreateMeteringDevice(int serviceId, Counter.MeteringDeviceSpan span)
         {
-            using (var connection = new SqliteConnection("Data Source=DataBase.db"))
+            if (_connection != null)
             {
-                connection.Open();
-
-                SqliteCommand sqlCommand = connection.CreateCommand();
+                SqliteCommand sqlCommand = _connection.CreateCommand();
                 sqlCommand.CommandText = "INSERT INTO metering_devices " +
                         "(service_id, current_indications, prev_indications) " +
                         "VALUES(@service_id, @current_indications, @prev_indications); SELECT last_insert_rowid();";
